@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Информация о пользователе</title>
+		<meta name="description" content="Java Script" />
+		
+		<!-- CSS SECTION -->
+		<style type="text/css">
+			body	
+			{
+				background-color: #A3E5FF;
+			} 
+			
+			.container	
+			{ 
+				position: absolute;
+				left: 25%;
+				top: 25%;
+				width: 500px; 
+				height: 150px;
+				margin:-100px 0 0 -200px;
+				background: #597CD9;
+				padding: 15px;
+				border: solid 1px black; 
+			}
+		</style>
+		
+		<!-- JAVASCRIPT SECTION -->
+		<script language="javascript" type="text/javascript" >
+			function aboutUser()	
+			{
+				name = document.forms["form"].elements["name"].value;
+				surname = document.forms["form"].elements["surname"].value;
+				age = document.forms["form"].elements["age"].value;
+				gender = document.forms["form"].elements["gender"].value;
+				if (name !== '' && surname !== '' && age !== '' )	
+				{
+					alert('Ваши данные:\nИмя: '+ name + '\nФамилия: ' + surname + '\nВозраст: ' + age + '\nПол: ' + gender);
+				}
+				else alert('Введите данные!');
+            }
+		</script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<form id="form">
+				Введите ваши ФИ: 
+				<br>
+				<input type='text' size='20' maxlength='15' placeholder="Имя" id='name'>
+				<input type='text' size='20' maxlength='25' placeholder="Фамилия" id='surname'>
+				<br>
+				Введите возраст: <input type="number" min='1' max='100' id='age'>
+				<br>
+				Введите пол: 
+				<input type="radio" name="gender" value="М">Муж.
+				<input type="radio" name="gender" value="Ж">Жен.
+				<br><br>
+
+				<input type="button" value="Вывести" onClick="aboutUser()">
+				<input type="reset" value="Очистить"></p>
+			</form>
+		</div>
+	</body>
+</html>
