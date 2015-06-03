@@ -1,0 +1,212 @@
+<html>
+	<head>
+		<title>Тараканьи бега</title>
+	</head>
+
+	<body onload="draw()">
+		<canvas id="page" width="600" height="600">Not page</canvas>
+		
+		<script type="text/javascript">
+				
+			var page, w;
+			var image1, image2, image3;	
+			var countViner1=0, countViner2=0, countViner3=0;
+
+			function draw()
+			{
+				page=document.getElementById("page");
+				w=page.getContext("2d");
+				
+				var image1 = {x:0, y:5};
+				image1 = new Image();
+				image1.src = 'http://deti-online.com/images/skazki-chukovskogo--tarakanishe.png';
+				image2 = new Image();
+				image2.src ='http://deti-online.com/images/skazki-chukovskogo--tarakanishe.png';
+				image3 = new Image();
+				image3.src ='http://deti-online.com/images/skazki-chukovskogo--tarakanishe.png';
+
+				var x1 = 0;
+				var x2 = 0;
+				var x3 = 0;
+
+				function myWorld()
+				{	page.height = 600;
+					page.width = 600;
+
+					w.beginPath()
+					w.fillStyle="green";
+ 					w.lineTo(0, 1);
+            				w.lineTo(600, 1);
+					w.closePath()
+					w.stroke()
+					w.fill()
+
+					w.beginPath()
+					w.fillStyle="green";
+ 					w.lineTo(0, 101);
+            				w.lineTo(600, 101);
+					w.closePath()
+					w.stroke()
+					w.fill()
+			
+					w.beginPath()
+					w.fillStyle="green";
+ 					w.lineTo(0, 201);
+            				w.lineTo(600, 201);
+					w.closePath()
+					w.stroke()
+					w.fill()
+
+					w.beginPath()
+					w.fillStyle="green";
+ 					w.lineTo(0, 301);
+            				w.lineTo(600, 301);
+					w.closePath()
+					w.stroke()
+					w.fill()
+					
+ 					w.drawImage(image1, x1, 5, 90, 90); 
+					w.drawImage(image1, x2, 105, 90, 90); 
+					w.drawImage(image1, x3, 205, 90, 90);
+					
+					if(x1 < 511)
+					{	
+						x1+=Math.random()*3;
+					}
+
+					if(x2 < 511)
+					{
+						x2+=Math.random()*3;
+					}
+
+					if(x3 < 511)
+					{
+						x3+=Math.random()*3;
+					}
+					
+					if(x1>=511)
+					{
+						if(countViner2==2 || countViner3==2)
+						{
+							if(countViner1!=1 && countViner1!=2)
+								{
+									countViner1=3;
+								}
+						}
+						else if(countViner2==1 || countViner3==1)
+						{
+								countViner1=2;
+						}
+						else if(countViner2==0 && countViner3==0)
+						{
+							countViner1=1;
+						}
+					}
+					if(countViner1==1)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел первым", 50, 50);
+					}
+					if(countViner1==2)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел вторым", 50, 50);
+					}
+					if(countViner1==3)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел третим", 50, 50);
+					}
+					
+					if(x2>=511)
+					{
+						if(countViner1==2 || countViner3==2)
+						{
+							if(countViner2!=1 && countViner2!=2)
+								{
+									countViner2=3;
+								}
+						}
+						else if(countViner1==1 || countViner3==1)
+						{
+							countViner2=2;
+						}
+						else if(countViner1==0 && countViner3==0)
+						{
+							countViner2=1;
+						}
+					}
+					if(countViner2==1)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел первым", 50, 150);
+					}
+					if(countViner2==2)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел вторым", 50, 150);
+					}
+					if(countViner2==3)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел третим", 50, 150);
+					}
+					
+					if(x3>=511)
+					{
+						if(countViner1==2 || countViner2==2)
+						{
+							if(countViner3!=1 && countViner3!=2)
+								{
+									countViner3=3;
+								}
+						}
+						else if(countViner1==1 || countViner2==1)
+						{
+							countViner3=2;
+						}
+						else if(countViner1==0 && countViner2==0)
+						{
+							countViner3=1;
+						}
+					}
+					if(countViner3==1)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел первым", 50, 250);
+					}
+					if(countViner3==2)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел вторым", 50, 250);
+					}
+					if(countViner3==3)
+					{
+						w.fillStyle = "black";
+						w.strokeStyle = "#F00";
+						w.font = "italic 30pt Arial";
+						w.fillText("Пришел третим", 50, 250);
+					}
+				}
+
+				setInterval(myWorld,1);
+			}
+		</script>	
+	</body>
+</html>
